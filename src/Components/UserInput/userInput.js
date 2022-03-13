@@ -14,14 +14,14 @@ const theme = createTheme()
 
 function UserInput() {
 
-    const [user, setUser] = useState('');
+    const [username, setUsername] = useState('');
     const [age, setAge] = useState('');
 
     const ageHandler = (e) => {
         setAge(e.target.value);
     }
     const userHandler = (e) => {
-        setUser(e.target.value);
+        setUsername(e.target.value);
     }
 
     const handleSubmit = (e) => {
@@ -29,11 +29,11 @@ function UserInput() {
         
 
         const user = {
-            username: setUser,
+            username: setUsername,
             age: setAge
         }
-        console.log(user.username, user.age);
-        setUser('');
+        console.log(username, age);
+        setUsername('');
         setAge('');
     }
   return (
@@ -55,12 +55,12 @@ function UserInput() {
               margin="normal"
               required
               fullWidth
-              id="USERNAME"
-              value={user}
+              id="username"
+              value={username}
               onChange={userHandler}
-              label="USERNAME"
-              name="USERNAME"
-              autoComplete="USERNAME"
+              label="username"
+              name="username"
+              autoComplete="username"
               autoFocus
             />
                 
