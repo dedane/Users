@@ -30,10 +30,10 @@ function userInput() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="USERNAME"
+              label="USERNAME"
+              name="USERNAME"
+              autoComplete="USERNAME"
               autoFocus
             />
                 
@@ -44,10 +44,10 @@ function userInput() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="Age"
+              label="Age"
+              name="Age"
+              autoComplete="Age"
               autoFocus
             />
                     
@@ -58,7 +58,7 @@ function userInput() {
                     fullwidth
                     variant="contained"
                     sx={{ mt: 3}}>
-                    Sign In
+                  Add User
                 </Button>
                     </Stack>
                 
