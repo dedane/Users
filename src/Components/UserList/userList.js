@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '@mui/material/Container'
 import { Typography, List } from '@mui/material'
 
-function userList() {
+function UserList() {
   return (
     <Container>
         <Typography>USERLIST</Typography>
@@ -13,4 +13,4 @@ function userList() {
   )
 }
 
-export default userList
+export default UserList

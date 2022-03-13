@@ -1,7 +1,7 @@
 
 import './App.css';
-import UserInput from './Components/UserInput/userInput';
-import UserList from './Components/UserList/userList';
+import UserInput from './Components/UserInput/UserInput';
+import UserList from './Components/UserList/UserList';
 import Box from '@mui/material/Box';
 
 function App() {
