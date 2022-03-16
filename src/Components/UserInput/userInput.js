@@ -12,7 +12,7 @@ import  {
 
 const theme = createTheme()
 
-function UserInput() {
+function UserInput(props) {
 
     const [username, setUsername] = useState('');
     const [age, setAge] = useState('');
@@ -31,8 +31,8 @@ function UserInput() {
         const user = {
             username: setUsername,
             age: setAge
-        }
-        console.log(username, age);
+    }
+        props.onAddUser(user);
         setUsername('');
         setAge('');
     }

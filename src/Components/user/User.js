@@ -6,10 +6,10 @@ function User() {
     <div>
         <Stack>
             <Typography>
-                {{user}}
+                user
             </Typography>
             <Typography>
-                {{age}}
+                age
             </Typography>
         </Stack>
         
