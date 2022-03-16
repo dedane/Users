@@ -1,15 +1,19 @@
 import React from 'react'
-import Container from '@mui/material/Container'
-import { Typography, List } from '@mui/material'
+import UserItem from './UserItem';
 
 function UserList(props) {
+  if (props.users.length === 0) {
+    return <h2 className='Habit-list__fallback'>Found no Habits.</h2>;
+  }
   return (
-    <Container>
-        <Typography>USERLIST</Typography>
-        <List>
-
-        </List>
-    </Container>
+    <ul>
+        {props.user.map((user) => (
+          <UserItem
+            name={user.name}
+            age={user.age}
+            />
+        ))}
+    </ul>
   )
 }
 

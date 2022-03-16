@@ -3,6 +3,7 @@ import './App.css';
 import UserInput from './Components/UserInput/UserInput';
 import UserList from './Components/UserList/UserList';
 import Box from '@mui/material/Box';
+import Users from './Components/UserList/Users'
 
 function App() {
   const users = [
@@ -21,7 +22,7 @@ function App() {
       <h1>Users</h1>
       <UserInput onAddUser={addUserHandler} />
       <Box sx={{mt: 10}}>
-      <UserList />
+      <Users />
       </Box>
       
     </div>
