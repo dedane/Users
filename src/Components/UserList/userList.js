@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '@mui/material/Container'
 import { Typography, List } from '@mui/material'
 
-function UserList() {
+function UserList(props) {
   return (
     <Container>
         <Typography>USERLIST</Typography>
