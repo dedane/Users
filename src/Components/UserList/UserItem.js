@@ -18,7 +18,7 @@ function UserItem(props) {
             <AccountCircleIcon />
           </ListItemIcon>
           <ListItemText>
-            {props.name}
+            {props.name}{props.age}
           </ListItemText>
           </ListItemButton>
         </ListItem>
