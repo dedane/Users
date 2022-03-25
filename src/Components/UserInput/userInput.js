@@ -28,11 +28,7 @@ function UserInput(props) {
         e.preventDefault();
         
 
-        const user = {
-            username: setUsername,
-            age: setAge
-    }
-        props.onAddUser(user);
+        props.onAddUser(username, age);
         setUsername('');
         setAge('');
     }

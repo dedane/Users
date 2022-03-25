@@ -1,23 +1,26 @@
+
 import React from 'react'
-import UserItem from './UserItem';
+
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
 
 function UserList(props) {
 
-  const userList = (props) => {
-    if(props.user)
-  }
-  
   return (
+    <Card>
+      <CardContent>
     <ul>
-        {props.user.map((user) => (
+        {props.user.map((use) => (
           <li>
-          <UserItem
-            name={user.name}
-            age={user.age}
-            />
+          
+            {use.name} ({use.age}) years old
+            
             </li>
         ))}
     </ul>
+    </CardContent>
+    </Card>
   )
 }
 

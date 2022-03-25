@@ -5,7 +5,13 @@ import {Container} from '@mui/material'
 function Users(props) {
   return (
     <Container>
-        <UserList />
+      {props.user.map((user) => (
+      <UserList 
+          id={user.id}
+          username ={user.username}
+          age={user.age}/>
+      ))}
+        
     </Container>
   )
 }
