@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import './App.css';
 import UserInput from './Components/UserInput/UserInput';
 import UserList from './Components/UserList/UserList.js'
-
 import Box from '@mui/material/Box';
-import Users from './Components/UserList/Users'
+
 
 function App() {
   
