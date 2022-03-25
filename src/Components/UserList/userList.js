@@ -12,7 +12,7 @@ function UserList(props) {
       <CardContent>
     <ul>
         {props.user.map((use) => (
-          <li>
+          <li key={use.id} >
           
             {use.name} ({use.age}) years old
             
