@@ -1,21 +1,22 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import  {
-    Container, 
-    Typography,
+     Container, 
+     Typography,
      TextField, 
      Button, 
      Box,
-    Stack,
-    CssBaseline,
-   } from '@mui/material'
-     import { createTheme, ThemeProvider } from '@mui/material/styles'
+     Stack,
+     CssBaseline } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import ErrorModal from '../Error/ErrorModal'
 
 const theme = createTheme()
 
 function UserInput(props) {
-
     const [username, setUsername] = useState('');
     const [age, setAge] = useState('');
+    const [error, setError] = useState('');
+
 
     const ageHandler = (e) => {
         setAge(e.target.value);
@@ -23,17 +24,40 @@ function UserInput(props) {
     const userHandler = (e) => {
         setUsername(e.target.value);
     }
-
+    const errorHandler =(e) => {
+      setError(null);
+    }
     const handleSubmit = (e) => {
-        e.preventDefault();
-        
 
+        e.preventDefault();
+
+        if(username.trim().length === '' || age.trim().length === '') {
+          setError({
+            title: "Invalid Name",
+            message: 'Please enter a valid username and age'
+          })
+          return;
+        }
+        if(+age < 1) {
+          setError({ 
+            title: "Invalid Age",
+            message: 'Please enter a valid age greater than 0'
+          })
+          return;
+        }  
         props.onAddUser(username, age);
         setUsername('');
         setAge('');
     }
   return (
+    <div>
+      
     <ThemeProvider theme={theme} >
+    {error && 
+    <ErrorModal 
+    title={error.title}
+    message={error.message}
+    onConfirm={errorHandler}/> }
         <Container component="main" maxWidth="xs">
             
             <CssBaseline />
@@ -47,7 +71,7 @@ function UserInput(props) {
                 <Typography>User Details</Typography>
             <Box component="form" noValidate sx={{ mt: 1 }}>
                
-                <TextField
+            <TextField
               margin="normal"
               required
               fullWidth
@@ -59,11 +83,7 @@ function UserInput(props) {
               autoComplete="username"
               autoFocus
             />
-                
-                
-                 
-
-                    <TextField
+            <TextField
               margin="normal"
               required
               fullWidth
@@ -92,6 +112,7 @@ function UserInput(props) {
             
             </Container>
     </ThemeProvider>
+    </div>
   )
 }
 
