@@ -9,6 +9,7 @@ import  {
      CssBaseline } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import ErrorModal from '../Error/ErrorModal'
+import Wrapper from '../Helpers/Wrapper'
 
 const theme = createTheme()
 
@@ -50,7 +51,7 @@ function UserInput(props) {
         setAge('');
     }
   return (
-    <div>
+    <Wrapper>
       
     <ThemeProvider theme={theme} >
     {error && 
@@ -112,7 +113,7 @@ function UserInput(props) {
             
             </Container>
     </ThemeProvider>
-    </div>
+    </Wrapper>
   )
 }
 
