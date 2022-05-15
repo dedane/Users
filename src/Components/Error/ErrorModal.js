@@ -1,12 +1,13 @@
 import React from 'react'
-import classes from './ErrorModal.css'
+import classes from './ErrorModal.module.css'
 import Card from '../UI/Card'
+import Button from '../UI/Button'
 
 function ErrorModal(props) {
      
   return (
-    <>
-      <div className={classes.backdrop} onclicck={props.onClick}>
+    <div>
+      <div className={classes.backdrop} onClick={props.onConfirm}>
         <Card className={classes.modal}>
             <header className={classes.header}>
               <h2>{props.title}</h2>
@@ -15,11 +16,11 @@ function ErrorModal(props) {
               <p>{props.message}</p>
             </div>
             <footer className={classes.footer}>
-              <Button onClick={props.onClick}>Okay</Button>
+              <Button onClick={props.onConfirm}>Okay</Button>
               </footer>
         </Card>
       </div>
-    </>
+    </div>
 
   )
 }

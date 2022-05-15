@@ -7,11 +7,11 @@ import  {
      Box,
      Stack,
      CssBaseline } from '@mui/material'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+//import { createTheme, ThemeProvider } from '@mui/material/styles'
 import ErrorModal from '../Error/ErrorModal'
 import Wrapper from '../Helpers/Wrapper'
 
-const theme = createTheme()
+
 
 function UserInput(props) {
     const [username, setUsername] = useState('');
@@ -19,15 +19,7 @@ function UserInput(props) {
     const [error, setError] = useState('');
 
 
-    const ageHandler = (e) => {
-        setAge(e.target.value);
-    }
-    const userHandler = (e) => {
-        setUsername(e.target.value);
-    }
-    const errorHandler =(e) => {
-      setError(null);
-    }
+    
     const handleSubmit = (e) => {
 
         e.preventDefault();
@@ -50,10 +42,21 @@ function UserInput(props) {
         setUsername('');
         setAge('');
     }
+    const userHandler = (event) => {
+      setUsername(event.target.value);
+    };
+  
+    const ageHandler = (event) => {
+      setAge(event.target.value);
+    };
+  
+    const errorHandler = () => {
+      setError(null);
+    };
   return (
     <Wrapper>
       
-    <ThemeProvider theme={theme} >
+    
     {error && 
     <ErrorModal 
     title={error.title}
@@ -112,7 +115,7 @@ function UserInput(props) {
             </Box>
             
             </Container>
-    </ThemeProvider>
+
     </Wrapper>
   )
 }
