@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import  {
      Container, 
      Typography,
@@ -13,42 +13,38 @@ import Wrapper from '../Helpers/Wrapper'
 
 
 
-function UserInput(props) {
-    const [username, setUsername] = useState('');
-    const [age, setAge] = useState('');
+const UserInput = (props) => {
+    const nameInputRef = useRef();
+    const ageInputRef = useRef();
+   
     const [error, setError] = useState('');
 
 
     
-    const handleSubmit = (e) => {
-
-        e.preventDefault();
-
-        if(username.trim().length === '' || age.trim().length === '') {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const enteredName = nameInputRef.current.value;
+        
+        const enteredAge = ageInputRef.current.value;
+        
+        if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
           setError({
             title: "Invalid Name",
             message: 'Please enter a valid username and age'
           })
           return;
         }
-        if(+age < 1) {
+        if(+enteredAge < 1) {
           setError({ 
             title: "Invalid Age",
             message: 'Please enter a valid age greater than 0'
           })
           return;
         }  
-        props.onAddUser(username, age);
-        setUsername('');
-        setAge('');
+        props.onAddUser(enteredName, enteredAge);
+    
     }
-    const userHandler = (event) => {
-      setUsername(event.target.value);
-    };
-  
-    const ageHandler = (event) => {
-      setAge(event.target.value);
-    };
+   
   
     const errorHandler = () => {
       setError(null);
@@ -57,11 +53,11 @@ function UserInput(props) {
     <Wrapper>
       
     
-    {error && 
+    {error && (
     <ErrorModal 
     title={error.title}
     message={error.message}
-    onConfirm={errorHandler}/> }
+    onConfirm={errorHandler}/> )}
         <Container component="main" maxWidth="xs">
             
             <CssBaseline />
@@ -80,8 +76,7 @@ function UserInput(props) {
               required
               fullWidth
               id="username"
-              value={username}
-              onChange={userHandler}
+              ref={nameInputRef}
               label="username"
               name="username"
               autoComplete="username"
@@ -91,16 +86,13 @@ function UserInput(props) {
               margin="normal"
               required
               fullWidth
-              value={age}
-              onChange={ageHandler}
+              ref={ageInputRef}
               id="Age"
               label="Age"
               name="Age"
               autoComplete="Age"
               autoFocus
-            />
-                    
-                
+            />   
                 <Stack>
                     <Button 
                     type="submit"
